@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <set xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Animasi muncul -->
     <alpha
-        android:fromAlpha="0.0"
-        android:toAlpha="1.0"
-        android:duration="500" />
+        android:duration="2000"
+        android:fromAlpha="0"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:toAlpha="1"
+        />
 
-    <!-- Animasi flip -->
-    <rotate
-        android:fromDegrees="0"
-        android:toDegrees="360"
-        android:duration="1000"
-        android:pivotX="50%"
-        android:pivotY="50%" />
 
-    <!-- Animasi menghilang -->
+
+<!--    <objectAnimator-->
+<!--        android:valueFrom="1"-->
+<!--        android:valueTo="0"-->
+<!--        android:propertyName="alpha"-->
+<!--        android:duration="0"-->
+<!--        android:interpolator="@android:anim/accelerate_decelerate_interpolator" />-->
+
     <alpha
-        android:fromAlpha="1.0"
-        android:toAlpha="0.0"
-        android:startOffset="1500"
-        android:duration="500" />
+        android:duration="2000"
+        android:fromAlpha="1"
+        android:interpolator="@android:anim/accelerate_interpolator"
+        android:toAlpha="0"
+        />
 </set>

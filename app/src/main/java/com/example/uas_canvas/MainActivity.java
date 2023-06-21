@@ -9,6 +9,9 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +29,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mImgView = findViewById(R.id.my_img_view);
-
+        mImgView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startAnimation();
+            }
+        });
         mCirclePaint.setColor(getResources().getColor(R.color.black));
         mHeadPaint.setColor(getResources().getColor(R.color.white));
     }
@@ -47,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         drawRightEye();
         drawLeftEye();
         drawEyeConnector();
+
     }
 
     private void drawHead() {
@@ -101,4 +110,11 @@ public class MainActivity extends AppCompatActivity {
         mCirclePaint.setStrokeWidth(15);
         mCanvas.drawLine(lineStartX, lineY, lineEndX, lineY, mCirclePaint);
     }
+
+    private void startAnimation() {
+
+        Animation flipAnimation = AnimationUtils.loadAnimation(this, R.anim.flip_animation);
+        mImgView.startAnimation(flipAnimation);
+    }
+
 }
